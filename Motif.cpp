@@ -1,18 +1,19 @@
 #include "Motif.h"
 #include "Constant.h"
+#include<iostream>
 #include<random>
 #include<iterator>
 #include<algorithm>
 #include<stdlib.h>
 #include<time.h>
 
-Motif::Motif() : Motif{4} {} //Delegating Constructor
+Motif::Motif() : Motif(4) {} //Delegating Constructor
 
 
 
-Motif::Motif(int s) : size{s} {
-	this->positions = vector<int>();
-	this->residues = vector<char>();
+Motif::Motif(int s) : size(s) {
+	this->positions = std::vector<int>();
+	this->residues = std::vector<char>();
 	std::sample(PEP_POSITIONS.begin(), PEP_POSITIONS.end(),
 			std::back_inserter(positions), s,
 			std::mt19937{std::random_device{}()});
@@ -34,7 +35,7 @@ std::vector<int> Motif::getPositions() {
 	return this->positions;
 }
 
-std::vector<int> Motif::getResidues() {
+std::vector<char> Motif::getResidues() {
 	return this->residues;
 }
 
@@ -65,4 +66,19 @@ void Motif::changeRes() {
 		rand_res = RESIDUES[ (rand() % RESIDUES_COUNT) ];
 	}
 	this->residues[rand_index] = rand_res;
+}
+
+std::string Motif::str() {
+	std::ostringstream os;
+	int pos_index  = 0;
+	for (int i = 0; i < PEP_LENGTH; i++) {
+		if (i == positions[pos_index] ) {
+			os << residues[pos_index];
+			pos_index++;
+		} else {
+			os << ".";
+		}
+	}
+	os << endl;
+	return os.str();
 }
