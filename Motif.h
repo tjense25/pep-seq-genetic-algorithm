@@ -6,19 +6,25 @@
 class Motif
 {
 	private:
-		int size;
+		unsigned int size;
 		std::vector<int> positions;
 		std::vector<char> residues;
+		std::string string;
+		void initializePos();
+		void initializeRes();
+		void updateString();
 	public:
 		Motif(); //default constructor
-		Motif(int size); //value constructor
+		Motif(unsigned int size); //value constructor
 		Motif(const Motif& m); //Copy constructor
-		int getSize();
+		unsigned int getSize();
 		std::vector<int> getPositions();
-		std::vector<int> getResidues();
-		char getResatPos(int pos);
+		std::vector<char> getResidues();
+		char getResAtPos(int pos);
 		void changePos();
 		void changeRes();
 		std::string str();
+		bool operator< (const Motif& left, const Motif& right);
+		bool operator== (const Motif& left, const Motif& right):
 };
 #endif

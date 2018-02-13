@@ -7,6 +7,7 @@ static int const POPULATION_SIZE = 1000;
 static int const GENERATIONS = 1000; //repeat genetic algorithm for this many gens
 static float const MUTATION_RATE = 0.05; // % chance an indiv. in pop will mutate
 static int const PEP_POSITIONS[] = {0, 1, 2, 3, 4, 5, 6, 7};
-static char const RESIUDES[] = "ACDEFGHIKLMNPQRSTVWY"; //all 20 AA symbols
+static char const RESIDUES[] = "ACDEFGHIKLMNPQRSTVWY"; //all 20 AA symbols
+static int const RESIDUES_COUNT = 20; //20 AA in the residue char array
 
 #endif

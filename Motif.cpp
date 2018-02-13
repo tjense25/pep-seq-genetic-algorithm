@@ -1,7 +1,6 @@
 #include "Motif.h"
 #include "Constant.h"
-#include<iostream>
-#include<random>
+#include<sstream>
 #include<iterator>
 #include<algorithm>
 #include<stdlib.h>
@@ -11,23 +10,18 @@ Motif::Motif() : Motif(4) {} //Delegating Constructor
 
 
 
-Motif::Motif(int s) : size(s) {
-	this->positions = std::vector<int>();
-	this->residues = std::vector<char>();
-	std::sample(PEP_POSITIONS.begin(), PEP_POSITIONS.end(),
-			std::back_inserter(positions), s,
-			std::mt19937{std::random_device{}()});
-	std::sample(RESIDUES.begin(), RESIDUES.end(),
-			std::back_insterter(residues), s,
-			std::mt19937{std::random_device{}()});
+Motif::Motif(unsigned int s) : size(s) {
+	initializePos();
+	initializeRes();
+	updateString();
 }
 
 //Copy constructor
-Motif::Motif(Motif that) : 
-	size(that.size), positions(that.positions), residues(that.residues)
-	{}
+Motif::Motif(const Motif& that) : 
+	size(that.size), positions(that.positions), residues(that.residues) {}
 
-int Motif::getSize() {
+
+unsigned int Motif::getSize() {
 	return this->size;
 }
 
@@ -40,35 +34,33 @@ std::vector<char> Motif::getResidues() {
 }
 
 char Motif::getResAtPos(int pos) {
-	for (int i = 0; i < this->positions.size(); i++) {
+	for (unsigned int i = 0; i < this->positions.size(); i++) {
 		if (positions[i] == pos) return residues[i];
 	}
 	return '.';
 }
 
 void Motif::changePos() {
-	srand( time(NULL) ); //initializing random seed
-
-	int rand_index = rand() % this->s; //generates random index to change
+	int rand_index = rand() % this->size; //generates random index to change
 	int new_pos = rand() % PEP_LENGTH; //gets within the peptide
 	while (std::find(positions.begin(), positions.end(), new_pos) != positions.end()) {
 		new_pos = rand() % PEP_LENGTH; // choose new pos til its unique
 	}
 	this->positions[rand_index] = new_pos;
+	updateString();
 }
 
 void Motif::changeRes() {
-	srand( time(NULL) ); //initialize random seed
-
 	int rand_index = rand() % PEP_LENGTH; //get random index to change
 	char rand_res = RESIDUES[ (rand() % RESIDUES_COUNT) ];
 	while (this->residues[rand_index] == rand_res) {
 		rand_res = RESIDUES[ (rand() % RESIDUES_COUNT) ];
 	}
 	this->residues[rand_index] = rand_res;
+	updateString();
 }
 
-std::string Motif::str() {
+void Motif::updateString() {
 	std::ostringstream os;
 	int pos_index  = 0;
 	for (int i = 0; i < PEP_LENGTH; i++) {
@@ -79,6 +71,37 @@ std::string Motif::str() {
 			os << ".";
 		}
 	}
-	os << endl;
-	return os.str();
+	this->string = os.str();
+}
+
+std::string Motif::str() {
+	return this->string;
+}
+
+void Motif::initializePos() {
+	positions.clear();
+	while (this->positions.size() != this->size) {
+		int pos = 0;
+		do {
+			pos = rand() % PEP_LENGTH;
+		} while (std::find(positions.begin(), positions.end(), pos) != positions.end());
+
+		positions.push_back(pos);
+	}
+	std::sort(positions.begin(), positions.end());
+}
+
+void Motif::initializeRes() {
+	this->residues.clear();
+	while (this->residues.size() != this->size) {
+		this->residues.push_back(RESIDUES[ (rand() % RESIDUES_COUNT) ]);
+	}
+}
+
+bool Motif::operator< (const Motif&left, const Motif& right) {
+	return left.string < right.string
+}
+
+bool Motif::operator== (const Motif&left, const Motif& right) {
+	return left.string == right.string
 }
