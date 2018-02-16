@@ -24,7 +24,5 @@ class Motif
 		void changePos();
 		void changeRes();
 		std::string str();
-		bool operator< (const Motif& left, const Motif& right);
-		bool operator== (const Motif& left, const Motif& right):
 };
 #endif

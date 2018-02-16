@@ -98,10 +98,3 @@ void Motif::initializeRes() {
 	}
 }
 
-bool Motif::operator< (const Motif&left, const Motif& right) {
-	return left.string < right.string
-}
-
-bool Motif::operator== (const Motif&left, const Motif& right) {
-	return left.string == right.string
-}

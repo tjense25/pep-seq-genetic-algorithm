@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.cpp
+Motif.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.h
+Constant.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
+sstream
+-
+iterator
+-
+algorithm
+-
+stdlib.h
+-
+time.h
+-
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.h
+vector
+-
+string
+-
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/main.cpp
+Motif.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.h
+Constant.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
+iostream
+-
+random
+-
+
