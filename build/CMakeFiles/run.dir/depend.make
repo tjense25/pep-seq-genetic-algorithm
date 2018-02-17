@@ -5,7 +5,13 @@ CMakeFiles/run.dir/Motif.cpp.o: ../Constant.h
 CMakeFiles/run.dir/Motif.cpp.o: ../Motif.cpp
 CMakeFiles/run.dir/Motif.cpp.o: ../Motif.h
 
+CMakeFiles/run.dir/MotifSet.cpp.o: ../Constant.h
+CMakeFiles/run.dir/MotifSet.cpp.o: ../Motif.h
+CMakeFiles/run.dir/MotifSet.cpp.o: ../MotifSet.cpp
+CMakeFiles/run.dir/MotifSet.cpp.o: ../MotifSet.h
+
 CMakeFiles/run.dir/main.cpp.o: ../Constant.h
 CMakeFiles/run.dir/main.cpp.o: ../Motif.h
+CMakeFiles/run.dir/main.cpp.o: ../MotifSet.h
 CMakeFiles/run.dir/main.cpp.o: ../main.cpp
 

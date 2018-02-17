@@ -150,6 +150,33 @@ Motif.cpp.s:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/Motif.cpp.s
 .PHONY : Motif.cpp.s
 
+MotifSet.o: MotifSet.cpp.o
+
+.PHONY : MotifSet.o
+
+# target to build an object file
+MotifSet.cpp.o:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/MotifSet.cpp.o
+.PHONY : MotifSet.cpp.o
+
+MotifSet.i: MotifSet.cpp.i
+
+.PHONY : MotifSet.i
+
+# target to preprocess a source file
+MotifSet.cpp.i:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/MotifSet.cpp.i
+.PHONY : MotifSet.cpp.i
+
+MotifSet.s: MotifSet.cpp.s
+
+.PHONY : MotifSet.s
+
+# target to generate assembly for a file
+MotifSet.cpp.s:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/MotifSet.cpp.s
+.PHONY : MotifSet.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... Motif.o"
 	@echo "... Motif.i"
 	@echo "... Motif.s"
+	@echo "... MotifSet.o"
+	@echo "... MotifSet.i"
+	@echo "... MotifSet.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -30,9 +30,25 @@ vector
 string
 -
 
-/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/main.cpp
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/MotifSet.cpp
+MotifSet.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/MotifSet.h
+Constant.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
+sstream
+-
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/MotifSet.h
 Motif.h
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.h
+set
+-
+string
+-
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/main.cpp
+MotifSet.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/MotifSet.h
 Constant.h
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
 iostream

@@ -1,1 +1,1 @@
-/apps/gcc/4.9.2/bin/g++   -O3 -DNDEBUG   CMakeFiles/run.dir/main.cpp.o CMakeFiles/run.dir/Motif.cpp.o  -o run 
+/apps/gcc/4.9.2/bin/g++   -O3 -DNDEBUG   CMakeFiles/run.dir/main.cpp.o CMakeFiles/run.dir/MotifSet.cpp.o CMakeFiles/run.dir/Motif.cpp.o  -o run 
