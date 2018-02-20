@@ -1,8 +1,9 @@
 #include "MotifSet.h"
 #include "Constant.h"
+#include "PepLibrary.h"
 #include<sstream>
 
-MotifSet::MotifSet() : MotifSet(10) {} //Delegating constructor. calls values constructor
+MotifSet::MotifSet() : MotifSet(20) {} //Delegating constructor. calls values constructor
 
 MotifSet::MotifSet(int count) {
 	this->count = count;
@@ -12,6 +13,7 @@ MotifSet::MotifSet(int count) {
 		Motif* motif = new Motif();
 		motifs.insert(motif);
 	}
+	PepLibrary::getInstance()->calculateFitness(*this);
 }
 
 //copy constructor
@@ -46,6 +48,14 @@ double MotifSet::getMotifAccuracy() {
 	return this->motif_accuracy;
 }
 
+void MotifSet::setPepCoverage(double pc) {
+	this->pep_coverage = pc;
+}
+
+void  MotifSet::setMotifAccuracy(double ma) {
+	this->motif_accuracy = ma;
+}
+
 double MotifSet::getFitness() {
 	return pep_coverage*motif_accuracy;
 }
@@ -68,3 +78,4 @@ std::string MotifSet::regexStr() {
 	os << ")";
 	return os.str();
 }
+

@@ -23,27 +23,28 @@ PepLibrary* PepLibrary::getInstance() {
 	return SINGLETON;
 }
 
-void PepLibrary::calculateFitness(MotifSet& ms) { /*
+int countMatchInRegex(std::string s, std::string re) {
+	std::regex words_regex(re);
+        auto words_begin = std::sregex_iterator(
+	s.begin(), s.end(), words_regex);
+	auto words_end = std::sregex_iterator();
+
+	return std::distance(words_begin, words_end);
+}
+
+void PepLibrary::calculateFitness(MotifSet& ms) { 
 	//Set regular expression to be regex from motif set
-	std::regex re (ms.regexStr());
+	std::string re = ms.regexStr();
 
-	//use regex to match all tox peptides and store in toxMatch object
-	std::cmatch toxMatch;
-	std::regex_match (this->toxPeps, toxMatch, re);
+	int toxMatches = countMatchInRegex(this->toxPeps, re);
+	int antiMatches = countMatchInRegex(this->antiPeps, re);
+	int neuMatches = countMatchInRegex(this->neuPeps, re);
 
-	//use regex to match all antitoxic peptides
-	std::cmatch antiMatch;
-	std::regex_match(this->antiPepes, antiMatch, re);
+	ms.setPepCoverage(((double) toxMatches)/ this->toxCount);
+
+	int totalMatched = toxMatches + antiMatches + neuMatches;
+	ms.setMotifAccuracy(((double) toxMatches) / totalMatched);
 	
-	//use regex to match all neutral peptides
-	std::cmatch neuMatch;
-	std::regex_match(this->neuPeps, neuMatch, re);
-
-	ms.setPepCoverage(((double) toxMatch.size()) / this->toxCount);
-
-	int totalMatched = toxMatch.size() + antiMatch.size(); + neuMatch.size();
-	ms.setMotifAccuracy(((double) toxMatch.size()) / totalMatched);
-	*/
 }
 
 std::string PepLibrary::getToxPeps() {

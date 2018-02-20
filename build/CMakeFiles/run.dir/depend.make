@@ -13,6 +13,7 @@ CMakeFiles/run.dir/MotifSet.cpp.o: ../Constant.h
 CMakeFiles/run.dir/MotifSet.cpp.o: ../Motif.h
 CMakeFiles/run.dir/MotifSet.cpp.o: ../MotifSet.cpp
 CMakeFiles/run.dir/MotifSet.cpp.o: ../MotifSet.h
+CMakeFiles/run.dir/MotifSet.cpp.o: ../PepLibrary.h
 
 CMakeFiles/run.dir/PepLibrary.cpp.o: ../AAGenerator.h
 CMakeFiles/run.dir/PepLibrary.cpp.o: ../Motif.h

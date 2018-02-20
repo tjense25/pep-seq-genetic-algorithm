@@ -17,7 +17,9 @@ class MotifSet {
 		~MotifSet(); //Destructor
 		int getCount();
 		std::set<Motif*> getMotifs();
+		void setPepCoverage(double);
 		double getPepCoverage();
+		void setMotifAccuracy(double);
 		double getMotifAccuracy();
 		double getFitness();
 		std::string str();
