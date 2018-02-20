@@ -21,5 +21,6 @@ class MotifSet {
 		double getMotifAccuracy();
 		double getFitness();
 		std::string str();
+		std::string regexStr();
 };
 #endif

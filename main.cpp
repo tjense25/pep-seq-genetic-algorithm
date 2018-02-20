@@ -10,7 +10,7 @@ int main(void) {
 	MotifSet* motifs = new MotifSet[POPULATION_SIZE/100];
 
 	for (int i = 0; i < POPULATION_SIZE/100; i++) {
-		std::cout << motifs[i].str() << std::endl;
+		std::cout << motifs[i].regexStr() << std::endl;
 	}
 
 	delete[] motifs;

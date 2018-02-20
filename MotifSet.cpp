@@ -58,3 +58,13 @@ std::string MotifSet::str() {
 	return os.str();
 }
 
+std::string MotifSet::regexStr() {
+	std::ostringstream os;
+	os << "^(";
+	for (auto itr = motifs.begin(); itr != motifs.end(); ++itr) {
+		if (itr != motifs.begin()) os << "|";
+		os << (*itr)->str();
+	}
+	os << ")";
+	return os.str();
+}
