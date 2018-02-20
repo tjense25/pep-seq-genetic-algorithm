@@ -1,5 +1,6 @@
 #include "Motif.h"
 #include "Constant.h"
+#include "AAGenerator.h"
 #include<sstream>
 #include<iterator>
 #include<algorithm>
@@ -52,9 +53,9 @@ void Motif::changePos() {
 
 void Motif::changeRes() {
 	int rand_index = rand() % PEP_LENGTH; //get random index to change
-	char rand_res = RESIDUES[ (rand() % RESIDUES_COUNT) ];
+	char rand_res = AAGenerator::getInstance()->getRes();
 	while (this->residues[rand_index] == rand_res) {
-		rand_res = RESIDUES[ (rand() % RESIDUES_COUNT) ];
+		rand_res = AAGenerator::getInstance()->getRes();
 	}
 	this->residues[rand_index] = rand_res;
 	updateString();
@@ -94,7 +95,7 @@ void Motif::initializePos() {
 void Motif::initializeRes() {
 	this->residues.clear();
 	while (this->residues.size() != this->size) {
-		this->residues.push_back(RESIDUES[ (rand() % RESIDUES_COUNT) ]);
+		this->residues.push_back(AAGenerator::getInstance()->getRes());
 	}
 }
 

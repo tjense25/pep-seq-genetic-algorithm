@@ -1,17 +1,29 @@
 #include<fstream>
 #include<regex>
 #include<sstream>
+#include<map>
+#include<iostream>
 #include "PepLibrary.h"
 #include "AAGenerator.h"
 
-static PepLibrary* PepLibrary::getInstance() {
-	if (! this->SINGLETON) {
-		this->SINGLETON = new PepLibrary();
+PepLibrary *PepLibrary::SINGLETON = NULL;
+
+PepLibrary::PepLibrary() : toxCount(0),
+			   antiCount(0),
+			   neuCount(0) {}
+
+PepLibrary::PepLibrary(PepLibrary const& that) {}
+
+PepLibrary& PepLibrary::operator=(PepLibrary const& that) {}
+
+PepLibrary* PepLibrary::getInstance() {
+	if (! SINGLETON) {
+		SINGLETON = new PepLibrary();
 	}
-	return this->SINGLETON;
+	return SINGLETON;
 }
 
-void PepLibrary::calculateFitness(MotifSet& ms) {
+void PepLibrary::calculateFitness(MotifSet& ms) { /*
 	//Set regular expression to be regex from motif set
 	std::regex re (ms.regexStr());
 
@@ -31,6 +43,7 @@ void PepLibrary::calculateFitness(MotifSet& ms) {
 
 	int totalMatched = toxMatch.size() + antiMatch.size(); + neuMatch.size();
 	ms.setMotifAccuracy(((double) toxMatch.size()) / totalMatched);
+	*/
 }
 
 std::string PepLibrary::getToxPeps() {
@@ -70,15 +83,24 @@ void PepLibrary::loadPeps(std::string libFileName) {
 
 	//Iterate through pepLibrary file and store pepSeqeunce in either the
 	//toxic, antitoxic, or neutral output stringstream
+	std::map<char,int> charFreq;
 	std::string pepseq;
 	std::string toxicity;
 	std::ostringstream toxos;
 	std::ostringstream antios;
-	std::ostringstram neuos;
+	std::ostringstream neuos;
 	while (inFile >> pepseq) {
+		//iterate through pepseq and update the charFreq map
+		for(int i = 0; i < pepseq.size(); i++) {
+			++charFreq[pepseq.at(i)];
+		}
+
+		//Iterate through next 7 columns till we reach toxicity score
 		for (int i = 0; i < 8; i++) {
 			inFile >> toxicity;
 		}
+
+		//depending on toxicity label, add pep to the correct stream
 		if (toxicity == "toxic") {
 			toxos << pepseq << std::endl;
 			this->toxCount++;
@@ -91,9 +113,11 @@ void PepLibrary::loadPeps(std::string libFileName) {
 		}
 	}
 
+	AAGenerator::getInstance()->setCharFreq(charFreq);
+
 	//convert ostringstreams to strings and store them in the correct
 	//member varaible
 	this->toxPeps = toxos.str();
-	this->antiPeps = antiox.str();
+	this->antiPeps = antios.str();
 	this->neuPeps = neuos.str();
 }

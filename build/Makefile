@@ -123,6 +123,33 @@ run/fast:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
 .PHONY : run/fast
 
+AAGenerator.o: AAGenerator.cpp.o
+
+.PHONY : AAGenerator.o
+
+# target to build an object file
+AAGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/AAGenerator.cpp.o
+.PHONY : AAGenerator.cpp.o
+
+AAGenerator.i: AAGenerator.cpp.i
+
+.PHONY : AAGenerator.i
+
+# target to preprocess a source file
+AAGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/AAGenerator.cpp.i
+.PHONY : AAGenerator.cpp.i
+
+AAGenerator.s: AAGenerator.cpp.s
+
+.PHONY : AAGenerator.s
+
+# target to generate assembly for a file
+AAGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/AAGenerator.cpp.s
+.PHONY : AAGenerator.cpp.s
+
 Motif.o: Motif.cpp.o
 
 .PHONY : Motif.o
@@ -177,6 +204,33 @@ MotifSet.cpp.s:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/MotifSet.cpp.s
 .PHONY : MotifSet.cpp.s
 
+PepLibrary.o: PepLibrary.cpp.o
+
+.PHONY : PepLibrary.o
+
+# target to build an object file
+PepLibrary.cpp.o:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/PepLibrary.cpp.o
+.PHONY : PepLibrary.cpp.o
+
+PepLibrary.i: PepLibrary.cpp.i
+
+.PHONY : PepLibrary.i
+
+# target to preprocess a source file
+PepLibrary.cpp.i:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/PepLibrary.cpp.i
+.PHONY : PepLibrary.cpp.i
+
+PepLibrary.s: PepLibrary.cpp.s
+
+.PHONY : PepLibrary.s
+
+# target to generate assembly for a file
+PepLibrary.cpp.s:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/PepLibrary.cpp.s
+.PHONY : PepLibrary.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -213,12 +267,18 @@ help:
 	@echo "... run"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... AAGenerator.o"
+	@echo "... AAGenerator.i"
+	@echo "... AAGenerator.s"
 	@echo "... Motif.o"
 	@echo "... Motif.i"
 	@echo "... Motif.s"
 	@echo "... MotifSet.o"
 	@echo "... MotifSet.i"
 	@echo "... MotifSet.s"
+	@echo "... PepLibrary.o"
+	@echo "... PepLibrary.i"
+	@echo "... PepLibrary.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

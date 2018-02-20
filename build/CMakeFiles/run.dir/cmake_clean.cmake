@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/run.dir/main.cpp.o"
   "CMakeFiles/run.dir/MotifSet.cpp.o"
   "CMakeFiles/run.dir/Motif.cpp.o"
+  "CMakeFiles/run.dir/PepLibrary.cpp.o"
+  "CMakeFiles/run.dir/AAGenerator.cpp.o"
   "run.pdb"
   "run"
 )

@@ -8,19 +8,20 @@
 class AAGenerator
 {
 	private:
-		std::map<char,double> charFreq;
+		std::map<char,int> charFreq;
 		int freqCount;
-		static AAGenerator* SINGLETON = NULL;
-		AAGenerator() {};
-		AAGenerator(AAGenerator const&) {};
-		AAGenerator& operator=(AAGenerator const&) {};	
-		void calculateResCount();
+		static AAGenerator* SINGLETON;
+		AAGenerator();
+		AAGenerator(AAGenerator const&);
+		AAGenerator& operator=(AAGenerator const&);	
+		void calculateFreqCount();
+		char getUnweightedRes();
+		char getWeightedRes();
 	public:
-		static char const RESIDUES[] = "ACDEFGHIKLMNPQRSTVWY"; //all 20 AA symbols
-		static int const RESIDUES_COUNT = 20; //20 AA in the residue char array
 		static AAGenerator* getInstance();
-		std::map<char,double> getCharFreq();
-		void setCharFreqeuncy(std::map<char,double>);
+		std::map<char,int> getCharFreq();
+		void setCharFreq(std::map<char,int> const&);
 		int getFreqCount();
 		char getRes();
 };
+#endif

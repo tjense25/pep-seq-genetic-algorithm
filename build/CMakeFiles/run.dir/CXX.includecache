@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/AAGenerator.cpp
+AAGenerator.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/AAGenerator.h
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/AAGenerator.h
+map
+-
+
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
 
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.cpp
@@ -13,6 +21,8 @@ Motif.h
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Motif.h
 Constant.h
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
+AAGenerator.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/AAGenerator.h
 sstream
 -
 iterator
@@ -46,9 +56,33 @@ set
 string
 -
 
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/PepLibrary.cpp
+fstream
+-
+regex
+-
+sstream
+-
+map
+-
+iostream
+-
+PepLibrary.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/PepLibrary.h
+AAGenerator.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/AAGenerator.h
+
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/PepLibrary.h
+string
+-
+MotifSet.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/MotifSet.h
+
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/main.cpp
 MotifSet.h
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/MotifSet.h
+PepLibrary.h
+/fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/PepLibrary.h
 Constant.h
 /fslhome/tjense25/fsl_groups/fslg_genome/pep_seq/genetic-algoirthm/Constant.h
 iostream

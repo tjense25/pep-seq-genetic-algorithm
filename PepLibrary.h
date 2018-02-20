@@ -7,16 +7,16 @@ class PepLibrary
 {
 	private:
 		std::string toxPeps;
-		int toxCount = 0;
+		int toxCount;
 		std::string antiPeps;
-		int antiCount = 0;
+		int antiCount;
 		std::string neuPeps;
-		int neuCount = 0;
+		int neuCount;
+		static PepLibrary* SINGLETON; //Singleton pointer
 		//Private constructors: Singleton Pattern!!
-		PepLibrary() {}; 
-		PepLibrary(PepLibrary const&) {};
-		PepLibrary& operator=(PepLibrary const&) {};
-		static PepLibrary* SINGLETON = NULL; //Singleton pointer
+		PepLibrary(); 
+		PepLibrary(PepLibrary const&);
+		PepLibrary& operator=(PepLibrary const&);
 	public:
 		static PepLibrary* getInstance();
 		void calculateFitness(MotifSet&);
@@ -28,3 +28,4 @@ class PepLibrary
 		int getNeuCount();
 		void loadPeps(std::string libFileName);
 };
+#endif
