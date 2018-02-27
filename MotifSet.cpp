@@ -3,7 +3,7 @@
 #include "PepLibrary.h"
 #include<sstream>
 
-MotifSet::MotifSet() : MotifSet(20) {} //Delegating constructor. calls values constructor
+MotifSet::MotifSet() : MotifSet(1) {} //Delegating constructor. calls values constructor
 
 MotifSet::MotifSet(int count) {
 	this->count = count;
@@ -70,7 +70,7 @@ std::string MotifSet::str() {
 
 std::string MotifSet::regexStr() {
 	std::ostringstream os;
-	os << "^(";
+	os << "(";
 	for (auto itr = motifs.begin(); itr != motifs.end(); ++itr) {
 		if (itr != motifs.begin()) os << "|";
 		os << (*itr)->str();

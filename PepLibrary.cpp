@@ -34,13 +34,14 @@ int countMatchInRegex(std::string s, std::string re) {
 
 void PepLibrary::calculateFitness(MotifSet& ms) { 
 	//Set regular expression to be regex from motif set
-	std::string re = ms.regexStr();
+	std::string re (ms.regexStr());
 
 	int toxMatches = countMatchInRegex(this->toxPeps, re);
 	int antiMatches = countMatchInRegex(this->antiPeps, re);
 	int neuMatches = countMatchInRegex(this->neuPeps, re);
 
 	ms.setPepCoverage(((double) toxMatches)/ this->toxCount);
+
 
 	int totalMatched = toxMatches + antiMatches + neuMatches;
 	ms.setMotifAccuracy(((double) toxMatches) / totalMatched);
