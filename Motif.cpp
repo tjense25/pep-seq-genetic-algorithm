@@ -7,14 +7,15 @@
 #include<stdlib.h>
 #include<time.h>
 
-Motif::Motif() : Motif(4) {} //Delegating Constructor
+Motif::Motif() : Motif(3) {} //Delegating Constructor
 
 
-
+//Default Constructor
 Motif::Motif(unsigned int s) : size(s) {
 	initializePos();
 	initializeRes();
 	updateString();
+	PepLibrary::getInstance()->calculateFitness(*this);
 }
 
 //Copy constructor
@@ -48,6 +49,7 @@ void Motif::changePos() {
 		new_pos = rand() % PEP_LENGTH; // choose new pos til its unique
 	}
 	this->positions[rand_index] = new_pos;
+	PepLibrary::getInstance()->calculateFitness(*this);
 	updateString();
 }
 
@@ -58,8 +60,32 @@ void Motif::changeRes() {
 		rand_res = AAGenerator::getInstance()->getRes();
 	}
 	this->residues[rand_index] = rand_res;
+	PepLibrary::getInstance()->calculateFitness(*this);
 	updateString();
 }
+
+double Moitf::getPepCoverage() {
+	return this->pep_coverage;
+}
+
+double Moitf::getMotifAccuracy() {
+	return this->motif_accuracy;
+}
+
+void Moitf::setPepCoverage(double pc) {
+	this->pep_coverage = pc;
+}
+
+void  Moitf::setMotifAccuracy(double ma) {
+	this->motif_accuracy = ma;
+}
+
+double Moitf::getFitness() {
+	//fitness is the harmonic mean of motif accuracy and peptide coverage
+	return 2*pep_coverage*motif_accuracy/(pep_coverage + motif_accuracy);
+}
+
+
 
 void Motif::updateString() {
 	std::ostringstream os;

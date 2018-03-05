@@ -10,6 +10,8 @@ class Motif
 		std::vector<int> positions;
 		std::vector<char> residues;
 		std::string string;
+		double pep_coverage; //percentage of toxic motifs that are covered by motifs
+		double motif_accuracy; //percentage of all motifs that are mapped by the MotifSet that are toxic
 		void initializePos();
 		void initializeRes();
 		void updateString();
@@ -23,6 +25,11 @@ class Motif
 		char getResAtPos(int pos);
 		void changePos();
 		void changeRes();
+		void setPepCoverage(double);
+		double getPepCoverage();
+		void setMotifAccuracy(double);
+		double getMotifAccuracy();
+		double getFitness();
 		std::string str();
 };
 #endif
